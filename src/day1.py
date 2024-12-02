@@ -1,3 +1,5 @@
+# Part 1
+
 with open('src/input/day1_input.txt', 'r') as file:
     lines = file.readlines()
 
@@ -19,3 +21,13 @@ for i in range(len(left)):
 
 print(difference)
 # Output: 1834060 ✅
+
+# Part 2
+
+similarity = 0
+
+for num in left:
+    similarity += num * right.count(num)
+
+print(similarity)
+# Output: 21607792 ✅
