@@ -1,9 +1,4 @@
 from Helpers import *
-import re
-
-input = read_input(4, False, False)
-
-pattern = re.compile(r'XMAS|SAMX')
 
 '''
 00 X 10 M 20 A 30 S
@@ -115,5 +110,7 @@ def part2():
     return solution
     # Output: 2047 too high
     # Output: 1965 ✅
+
+input = read_input(4, False, False)
 
 time_it(part2)
