@@ -113,4 +113,4 @@ def part2():
 
 input = read_input(4, False, False)
 
-time_it(part2)
+execute(part2)
