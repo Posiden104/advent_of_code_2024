@@ -8,13 +8,14 @@ def read_input(day: int, example: bool, oneline: bool):
             return file.readlines()
 
 
-def time_it(func): 
+def time_it(func, title): 
     start_time = time.perf_counter()
     result = func()
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     elapsed_time *= 1000
     print("=========================================")
+    print(f"{title}") if title else print('')
     print(f"Result: {result}")
     print(f"Operation took {elapsed_time:.6f} ms.")
     print("=========================================")
