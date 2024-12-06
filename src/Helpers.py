@@ -5,8 +5,7 @@ def read_input(day: int, example: bool, oneline: bool):
         if oneline: 
             return file.read().replace('\n', '')
         else:
-            return file.readlines()
-
+            return [line.strip() for line in file.readlines()]
 
 def time_it(func): 
     start_time = time.perf_counter()
