@@ -12,13 +12,21 @@ def time_it(func):
     result = func()
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
-    elapsed_time *= 1000
-    return result, elapsed_time
+    time_format = ''
+    if elapsed_time < 1:
+        elapsed_time *= 1000
+        time_format = f"{elapsed_time:.6f} ms"
+    elif elapsed_time > 60:
+        elapsed_time /= 60
+        time_format = f"{elapsed_time:.6f} mins"
+    else:
+        time_format = f"{elapsed_time:.6f} s"
+    return result, time_format
 
 def execute(func, title):
     result, time = time_it(func)
     print("=========================================")
     print(f"{title}") if title else print('')
     print(f"Result: {result}")
-    print(f"Operation took {time:.6f} ms.")
+    print(f"Operation took {time}.")
     print("=========================================")
