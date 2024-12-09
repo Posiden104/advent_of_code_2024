@@ -20,7 +20,7 @@ def time_it(func):
         elapsed_time /= 60
         time_format = f"{elapsed_time:.6f} mins"
     else:
-        time_format = f"{elapsed_time:.6f} s"
+        time_format = f"{elapsed_time:.6f} sec"
     return result, time_format
 
 def execute(func, title):

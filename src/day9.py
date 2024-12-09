@@ -45,5 +45,5 @@ example = False
 input = read_input(9, example, True)
 
 execute(part1, "Day 9 - Part 1" + (" - Example" if example else ""))
-# Output: 6448989155953 - 38.84 ms
+# Output: 6448989155953 - 38.84 sec
 # execute(part2, "Day 9 - Part 2" + (" - Example" if example else ""))
