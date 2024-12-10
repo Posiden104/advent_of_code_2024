@@ -1,6 +1,5 @@
 from Helpers import *
 
-
 def walk_trail(r, c, num, seen_trail_ends:set=set(), save_ends=True) -> int:
     score = 0
     if r < 0 or r >= len(input) or c < 0 or c >= len(input[r]):
@@ -21,7 +20,6 @@ def walk_trail(r, c, num, seen_trail_ends:set=set(), save_ends=True) -> int:
     
 def part1(save_ends=True):
     score = 0
-
     for r in range(len(input)):
         for c in range(len(input[r])):
             if input[r][c] == '0':
