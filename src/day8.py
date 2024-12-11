@@ -11,13 +11,18 @@ def find_antinodes_by_freq(freq, locs, forever=False):
             while v1[0] >= 0 and v1[0] < len(input) and v1[1] >= 0 and v1[1] < len(input[0]):
                 anodes.add(v1)
                 v1 = v1[0] + vector[0], v1[1] + vector[1]
+                if not forever:
+                    break
 
             v2 = a[0] - vector[0], a[1] - vector[1]
             while v2[0] >= 0 and v2[0] < len(input) and v2[1] >= 0 and v2[1] < len(input[0]):
                 anodes.add(v2)
                 v2 = v2[0] - vector[0], v2[1] - vector[1]
-            anodes.add(a)
-            anodes.add(b)
+                if not forever:
+                    break
+            if forever:
+                anodes.add(a)
+                anodes.add(b)
         # for i, r in enumerate(input):
         #     for j, c in enumerate(r):
         #         print(input[i][j] if (i, j) not in anodes else '#', end='')
@@ -44,9 +49,8 @@ def find_antennas():
 def find_antinodes(antennas, forever=False):
     antinodes = set()
     for a in antennas:
-        anodes = find_antinodes_by_freq(a, antennas[a])
+        anodes = find_antinodes_by_freq(a, antennas[a], forever)
         antinodes = antinodes.union(anodes)
-    # print(antinodes)
 
     return antinodes
 
@@ -71,10 +75,11 @@ def part2():
 example = False
 input = read_input(8, example, False)
 
-# execute(part1, "Day 8 - Part 1" + (" - Example" if example else ""))
+execute(part1, "Day 8 - Part 1" + (" - Example" if example else ""))
 # Result: 390
 # Operation took 3.412700 ms.
 execute(part2, "Day 8 - Part 2" + (" - Example" if example else ""))
-# Output: 0 - 0.00 ms
+# Result: 1246
+# Operation took 7.444900 ms.
 
 
