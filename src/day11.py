@@ -67,3 +67,23 @@ execute(part2, "Day 11 - Part 2" + (" - Example" if example else ""))
 # Result: 236302670835517
 # Operation took 382.750400 ms.
 
+# Ripped from the internet: https://topaz.github.io/paste/#XQAAAQBmAQAAAAAAAAAzHIoib6poHLpewxtGE3pTrRdzrponKxDhfDpmpp1XaSM15emS/r8eKIsi8OyRU1yttx/bMBsS4XZHZN6NkMdw4WSJvzKz7a+8Nmsp1b8xwfTg6quN6qTJ245hV4tLxhD1trmPHMhqawzEcRNiQ8xJHXCVugAUaFTdzmvC2oYMDQlYGJBYjguH/wbIC+3zdU7i9gW3/6LzoHPeOKZcciKOFy9898nylpv0qpiHf5aI65VOrFLGBlbk8xkjU4EfRE2oapEMPdFbSjkN6tJ6L4+GQ6HEWv/lwxQA
+from functools import cache
+from math import floor, log10
+
+@cache
+def count(x, d=75):
+    if d == 0: return 1
+    if x == 0: return count(1, d-1)
+
+    l = floor(log10(x))+1
+    if l % 2: return count(x*2024, d-1)
+
+    return (count(x // 10**(l//2), d-1)+
+            count(x %  10**(l//2), d-1))
+
+def part3():
+    data = map(int, input.split())
+    return(sum(map(count, data)))
+
+# execute(part3, "Day 11 - Part 3" + (" - Example" if example else ""))
